@@ -12,10 +12,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class BemAgricolaDTO {
 
-	private long idBem;
-	
-	private long idTipoBem;
-	private String funcional;
+	private long codigoBem;
+	private String tipoBemAgricola;
+	private String funcionalColaborador;
 	private int safra;
 	private String quantidade;
 	private boolean colheitaRealizada;
@@ -26,9 +25,9 @@ public class BemAgricolaDTO {
 	private Date dataAvaliacao;
 	
 	public BemAgricolaDTO(BemAgricola bemAgricola) {
-		this.idBem = bemAgricola.getIdBem();
-		this.idTipoBem = bemAgricola.getIdTipoBem();
-		this.funcional = bemAgricola.getFuncional();
+		this.codigoBem = bemAgricola.getCodigoBem();
+		this.tipoBemAgricola = bemAgricola.getTipoBemAgricola();
+		this.funcionalColaborador = bemAgricola.getFuncionalColaborador();
 		this.safra = bemAgricola.getSafra();
 		this.quantidade = bemAgricola.getQuantidade();
 		this.colheitaRealizada = bemAgricola.isColheitaRealizada();
