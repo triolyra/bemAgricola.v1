@@ -23,7 +23,7 @@ public class BemAgricolaController {
 	
 	@PostMapping
 	public ResponseEntity <BemAgricola> cadastrarBem(@RequestBody BemAgricola bemAgricola){
-		return ResponseEntity.status(HttpStatus.CREATED).body(bemAgricolaService.incluirBem(bemAgricola));
+		return ResponseEntity.status(HttpStatus.CREATED).body(bemAgricolaService.cadastrarBemAgricola(bemAgricola));
 	}
 	
 	@GetMapping

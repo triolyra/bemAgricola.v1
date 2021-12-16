@@ -17,7 +17,7 @@ public class BemAgricolaService {
 	@Autowired
 	private CadastrarBemAgricolaUseCase cadastrarBemAgricolaUseCase;
 	
-	public BemAgricola incluirBem(BemAgricola bemAgricola) {
+	public BemAgricola cadastrarBemAgricola(BemAgricola bemAgricola) {
 		if (cadastrarBemAgricolaUseCase.cadastrarBemAgricola(bemAgricola)) {
 			return null;
 		} else {
