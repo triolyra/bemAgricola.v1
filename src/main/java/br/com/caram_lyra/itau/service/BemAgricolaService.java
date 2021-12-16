@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.caram_lyra.itau.domain.BemAgricola;
 import br.com.caram_lyra.itau.repository.BemAgricolaRepository;
-import br.com.caram_lyra.itau.usecase.CadastrarBemAgricolaUseCase;
+import br.com.caram_lyra.itau.usecase.CadastrarUseCase;
 
 @Service
 public class BemAgricolaService {
@@ -15,15 +15,14 @@ public class BemAgricolaService {
 	private BemAgricolaRepository bemAgricolaRepository;
 	
 	@Autowired
-	private CadastrarBemAgricolaUseCase cadastrarBemAgricolaUseCase;
+	private CadastrarUseCase cadastrarUseCase;
 	
-	public BemAgricola cadastrarBemAgricola(BemAgricola bemAgricola) {
-		if (cadastrarBemAgricolaUseCase.cadastrarBemAgricola(bemAgricola)) {
+	public BemAgricola incluirBemAgricola(BemAgricola bemAgricola) {
+		if (cadastrarUseCase.incluirBemAgricola(bemAgricola)) {
 			return null;
 		} else {
 			bemAgricolaRepository.save(bemAgricola);
 			return bemAgricola;
 		}
-		
 	}
-	}
+}

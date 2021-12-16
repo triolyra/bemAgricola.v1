@@ -5,10 +5,10 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import br.com.caram_lyra.itau.domain.BemAgricola;
+import br.com.caram_lyra.itau.domain.Garantia;
 
 @Repository
-public interface BemAgricolaRepository extends JpaRepository<BemAgricola, Long>{
+public interface GarantiaRepository extends JpaRepository<Garantia, Long>{
 	
-	public Optional<BemAgricola> findByCodigoBem(long codigoBem);
+	public Optional<Garantia> findByCodigoGarantia(long codigoGarantia);
 }
