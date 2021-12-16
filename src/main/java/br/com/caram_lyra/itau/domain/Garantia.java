@@ -20,8 +20,10 @@ public class Garantia {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long codigoGarantia;
 	
-	private long codigoTipoGarantia;
+	private long codigoTipoGarantiaInstrumento; //vai ser do tipo penhor
 	
-	@OneToMany
-	private List <BemAgricola> bemAgricola;
+	@OneToMany (mappedBy= "garantia")
+	private List <BemAgricola> bemAgricola;//uma garantia possui um ou mais bens, o que é penhorado é um produto do tipo agrícola
+	
+	//produto
 }

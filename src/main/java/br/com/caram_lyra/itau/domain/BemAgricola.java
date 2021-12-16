@@ -1,6 +1,7 @@
 package br.com.caram_lyra.itau.domain;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -28,23 +31,21 @@ public class BemAgricola {
 	private boolean colheitaRealizada;
 	private String unidadeMedida;
 	private String tipoMoeda;
-	private double valor;
+	//private double valor;
 	private Date dataInclusao;
 	private Date dataAvaliacao;
 	
 	@ManyToOne
-	//@JsonIgnoreProperties("seguro")
-	private Seguro seguro;
+	@JoinColumn(name= "codigoGarantia")
+	private Garantia garantia; //bem possui uma garantia
 	
 	@ManyToOne
-	//@JsonIgnoreProperties("pessoa")
-	private Pessoa pessoa;
+	@JoinColumn(name= "codigoPessoa")
+	private Pessoa pessoa; //bem possui uma pessoa dona da propriedade
 	
-	@ManyToOne
-	//@JsonIgnoreProperties("propriedade")
-	private Propriedade propriedade;
-	
-	@ManyToOne
-	@JoinColumn (name= "codigoGarantia")
-	private Garantia garantia;
+	@OneToMany (mappedBy= "bemAgricola")
+	private List <Propriedade> propriedade; //bem possui uma ou mais propriedades
+
+	@OneToOne (mappedBy= "bemAgricola")
+	private Seguro seguro; //bem possui um seguro atrelado
 }

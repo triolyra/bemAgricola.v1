@@ -19,5 +19,5 @@ public class Operacao {
 	private int cpf;
 	private Date DataAbertura;
 	private Date DataVencimento;
-	private double valor;
+	//private double valor;
 }

@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -28,6 +29,11 @@ public class Propriedade {
 	private String UF;
 	
 	@ManyToOne
-	//@JsonIgnoreProperties("bem")
-	private BemAgricola bemAgricola;
+	@JoinColumn(name= "codigoBem")
+	private BemAgricola bemAgricola; //a propriedade é atrelada a um bem
+	
+	@ManyToOne
+	@JoinColumn(name= "codigoPessoa")
+	private Pessoa pessoa; //a propriedade é atrelada a uma pessoa
+	
 }

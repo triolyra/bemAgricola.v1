@@ -33,7 +33,7 @@ public class BemAgricolaDTO {
 		this.colheitaRealizada = bemAgricola.isColheitaRealizada();
 		this.unidadeMedida = bemAgricola.getUnidadeMedida();
 		this.tipoMoeda = bemAgricola.getTipoMoeda();
-		this.valor = bemAgricola.getValor();
+		//this.valor = bemAgricola.getValor();
 		this.dataInclusao = bemAgricola.getDataInclusao();
 		this.dataAvaliacao = bemAgricola.getDataAvaliacao();
 		
