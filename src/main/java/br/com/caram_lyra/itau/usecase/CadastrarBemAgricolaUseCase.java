@@ -13,7 +13,7 @@ public class CadastrarBemAgricolaUseCase {
 	private BemAgricolaRepository bemAgricolaRepository;
 	
 	public boolean cadastrarBemAgricola(BemAgricola bemAgricola) {
-		if (bemAgricolaRepository.findByGarantia(bemAgricola.getGarantia()).isEmpty()) {
+		if (bemAgricolaRepository.findByCodigoBem(bemAgricola.getCodigoBem()).isEmpty()) {
 			return false;
 		} else {
 			return true;
