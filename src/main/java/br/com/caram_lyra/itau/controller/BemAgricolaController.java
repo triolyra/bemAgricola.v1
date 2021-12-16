@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,9 +32,14 @@ public class BemAgricolaController {
 		return ResponseEntity.status(HttpStatus.CREATED).body(bemAgricolaService.incluirBemAgricola(bemAgricola));
 	}
 	
-	@PostMapping
-	public ResponseEntity <Garantia> incluirGarantia(@RequestBody Garantia garantia){
-		return ResponseEntity.status(HttpStatus.CREATED).body(garantiaService.incluirGarantia(garantia));
+	//@PostMapping
+	//public ResponseEntity <Garantia> incluirGarantia(@RequestBody Garantia garantia){
+		//return ResponseEntity.status(HttpStatus.CREATED).body(garantiaService.incluirGarantia(garantia));
+	//}
+	
+	@PutMapping
+	public ResponseEntity<Garantia> incluirGarantia(@RequestBody Garantia garantia){
+		return ResponseEntity.status(HttpStatus.OK).body(garantiaService.incluirGarantia(garantia));
 	}
 	
 	@GetMapping
