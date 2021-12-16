@@ -1,6 +1,7 @@
 package br.com.caram_lyra.itau.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +23,7 @@ public class BemAgricolaController {
 	
 	@PostMapping
 	public ResponseEntity <BemAgricola> cadastrarBem(@RequestBody BemAgricola bemAgricola){
-		return ResponseEntity.status(200).body(bemAgricolaService.incluirBem(bemAgricola));
+		return ResponseEntity.status(HttpStatus.CREATED).body(bemAgricolaService.incluirBem(bemAgricola));
 	}
 	
 	@GetMapping
