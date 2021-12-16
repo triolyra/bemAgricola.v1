@@ -8,13 +8,13 @@
 		<version>2.6.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>br.com.caram-lyra</groupId>
+	<groupId>br.com.caram_lyra</groupId>
 	<artifactId>itau-gg-api-bemAgricola</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>itau-gg-api-bemAgricola</name>
-	<description>Demo project for Spring Boot</description>
+	<name>BemAgricola</name>
+	<description>API de Bem Agrícola para Garantias</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>15.0.1</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
