@@ -1,5 +1,7 @@
 package br.com.caram_lyra.itau.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -42,9 +44,9 @@ public class BemAgricolaController {
 		return ResponseEntity.status(HttpStatus.OK).body(garantiaService.incluirGarantia(garantia));
 	}
 	
-	@GetMapping
-	public String teste() {
-		return "olaaa";
+	@GetMapping("/")
+	public ResponseEntity<List<BemAgricola>> findAllBemAgricola{
+		
 	}
 }
 
