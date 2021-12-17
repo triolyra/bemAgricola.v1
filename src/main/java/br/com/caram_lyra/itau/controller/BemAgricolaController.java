@@ -34,7 +34,6 @@ public class BemAgricolaController {
 	}
 
 	
-
 	@PostMapping("/cadastrarSeguro")
 	public ResponseEntity<Seguro> cadastrarSeguro(@RequestBody Seguro seguro) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(seguroService.cadastrarSeguro(seguro));

@@ -24,7 +24,6 @@ public class CadastrarBemAgricolaUseCase {
 
 	}
 
-	
 
 	@Autowired
 	private SeguroRepository seguroRepository;

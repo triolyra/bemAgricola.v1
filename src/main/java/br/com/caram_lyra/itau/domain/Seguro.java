@@ -26,6 +26,7 @@ public class Seguro {
 	private Date dataInicio;
 	private Date dataFimAvaliacao;
 	
+
 	@OneToOne
 	@JoinColumn(name= "codigoBem")
 	private BemAgricola bemAgricola; //o seguro é atrelado a um bem

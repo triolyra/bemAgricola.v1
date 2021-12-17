@@ -12,4 +12,5 @@ public interface SeguroRepository extends JpaRepository<Seguro, Long>{
 
 	public Optional<Seguro> findByCodigoSeguro(long codigoSeguro);
 
+
 }
