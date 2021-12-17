@@ -11,15 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.caram_lyra.itau.domain.BemAgricola;
-
-import br.com.caram_lyra.itau.domain.Seguro;
-import br.com.caram_lyra.itau.service.BemAgricolaService;
-import br.com.caram_lyra.itau.service.SeguroService;
-
 import br.com.caram_lyra.itau.domain.Garantia;
 import br.com.caram_lyra.itau.domain.Pessoa;
+import br.com.caram_lyra.itau.domain.Seguro;
+import br.com.caram_lyra.itau.service.BemAgricolaService;
 import br.com.caram_lyra.itau.service.GarantiaService;
 import br.com.caram_lyra.itau.service.PessoaService;
+import br.com.caram_lyra.itau.service.SeguroService;
 
 @RestController
 @RequestMapping("/cadastrar")
@@ -37,22 +35,22 @@ public class BemAgricolaController {
 
 	private GarantiaService garantiaService;
 
-	@PostMapping
+	@PostMapping("/bem-agricola")
 	public ResponseEntity<BemAgricola> incluirBemAgricola(@RequestBody BemAgricola bemAgricola) {
-		return ResponseEntity.status(HttpStatus.CREATED).body(bemAgricolaService.incluirBemAgricola(bemAgricola));
+		return ResponseEntity.status(HttpStatus.CREATED).body(bemAgricolaService.cadastrarBemAgricola(bemAgricola));
 	}
 
-	//@PostMapping
-	//public ResponseEntity<Garantia> incluirGarantia(@RequestBody Garantia garantia) {
-		//return ResponseEntity.status(HttpStatus.CREATED).body(garantiaService.incluirGarantia(garantia));
-	//}
+	@PostMapping("/garantia")
+	public ResponseEntity<Garantia> incluirGarantia(@RequestBody Garantia garantia) {
+		return ResponseEntity.status(HttpStatus.CREATED).body(garantiaService.cadastrarGarantia(garantia));
+	}
 
-	@PostMapping("/cadastrarSeguro")
+	@PostMapping("/seguro")
 	public ResponseEntity<Seguro> cadastrarSeguro(@RequestBody Seguro seguro) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(seguroService.cadastrarSeguro(seguro));
 	}
 	
-	@PostMapping("/cadastrarPessoa")
+	@PostMapping("/pessoa")
 		 public ResponseEntity<Pessoa> cadastrarPessoa(@RequestBody Pessoa pessoa){
 		 return ResponseEntity.status(HttpStatus.CREATED).body(pessoaService.cadastrarPessoa(pessoa));
 		}

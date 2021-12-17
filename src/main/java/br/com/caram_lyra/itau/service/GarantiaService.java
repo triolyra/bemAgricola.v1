@@ -14,8 +14,8 @@ public class GarantiaService {
 	@Autowired
 	private CadastrarUseCase cadastrarUseCase;
 
-	public Garantia incluirGarantia(Garantia garantia) {
-		if (cadastrarUseCase.incluirGarantia(garantia)) {
+	public Garantia cadastrarGarantia(Garantia garantia) {
+		if (cadastrarUseCase.cadastrarGarantia(garantia)) {
 			return null;
 		} else {
 			garantiaRepository.save(garantia);
