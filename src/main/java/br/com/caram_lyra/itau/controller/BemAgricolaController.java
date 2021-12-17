@@ -11,24 +11,33 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.caram_lyra.itau.domain.BemAgricola;
+import br.com.caram_lyra.itau.domain.Pessoa;
 import br.com.caram_lyra.itau.service.BemAgricolaService;
+import br.com.caram_lyra.itau.service.PessoaService;
 
 @RestController
 @RequestMapping("/cadastrar")
-@CrossOrigin("*")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class BemAgricolaController {
-	
+
 	@Autowired
 	private BemAgricolaService bemAgricolaService;
+
+	@Autowired
+	private PessoaService pessoaService;
 	
 	@PostMapping
-	public ResponseEntity <BemAgricola> cadastrarBem(@RequestBody BemAgricola bemAgricola){
+	public ResponseEntity<BemAgricola> cadastrarBem(@RequestBody BemAgricola bemAgricola) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(bemAgricolaService.cadastrarBemAgricola(bemAgricola));
 	}
-	
+
+	@PostMapping("/cadastrarPessoa")
+	 public ResponseEntity<Pessoa> cadastrarPessoa(@RequestBody Pessoa pessoa){
+	 return ResponseEntity.status(HttpStatus.CREATED).body(pessoaService.cadastrarPessoa(pessoa));
+	}
+
 	@GetMapping
 	public String teste() {
 		return "olaaa";
 	}
 }
-
