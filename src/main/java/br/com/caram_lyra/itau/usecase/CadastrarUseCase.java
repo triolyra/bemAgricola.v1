@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 
 import br.com.caram_lyra.itau.domain.BemAgricola;
 import br.com.caram_lyra.itau.domain.Garantia;
+import br.com.caram_lyra.itau.domain.Propriedade;
 import br.com.caram_lyra.itau.repository.BemAgricolaRepository;
 import br.com.caram_lyra.itau.repository.GarantiaRepository;
 
@@ -31,5 +32,10 @@ public class CadastrarUseCase {
 			} else {
 				return true;
 			}
+		}
+
+		public boolean incluirPropriedade(Propriedade propriedade) {
+			
+			return false;
 		}
 }
