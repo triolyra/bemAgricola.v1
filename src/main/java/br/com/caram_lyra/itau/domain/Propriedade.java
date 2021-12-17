@@ -37,3 +37,4 @@ public class Propriedade {
 	private Pessoa pessoa; //a propriedade é atrelada a uma pessoa
 	
 }
+  

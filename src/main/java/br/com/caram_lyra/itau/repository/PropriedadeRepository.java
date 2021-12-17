@@ -10,3 +10,4 @@ public interface PropriedadeRepository extends JpaRepository<Propriedade, Long>{
 	public Optional<Propriedade> findByCodigoPropriedade(long codigoPropriedade);
 }
 
+  

@@ -12,3 +12,4 @@ public interface BemAgricolaRepository extends JpaRepository<BemAgricola, Long>{
 	
 	public Optional<BemAgricola> findByCodigoBem(long codigoBem);
 }
+  

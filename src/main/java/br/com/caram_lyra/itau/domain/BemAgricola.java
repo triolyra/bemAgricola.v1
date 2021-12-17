@@ -49,3 +49,4 @@ public class BemAgricola {
 	@OneToOne (mappedBy= "bemAgricola")
 	private Seguro seguro; //bem possui um seguro atrelado
 }
+  

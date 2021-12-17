@@ -25,7 +25,7 @@ public class PropriedadesService {
 			return propriedade;
 		}
 	}
-
+  
 
 }
 	

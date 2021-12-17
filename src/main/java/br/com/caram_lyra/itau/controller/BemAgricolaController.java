@@ -51,7 +51,7 @@ public class BemAgricolaController {
 		return ResponseEntity.status(HttpStatus.CREATED).body(propriedadeService.incluirPropriedade(propriedade));
 	}
 	
-}
+}  
 
     
 
