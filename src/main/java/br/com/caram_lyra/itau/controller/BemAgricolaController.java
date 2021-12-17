@@ -35,13 +35,13 @@ public class BemAgricolaController {
 
 	private GarantiaService garantiaService;
 
-	@PostMapping("/bem-agricola")
-	public ResponseEntity<BemAgricola> incluirBemAgricola(@RequestBody BemAgricola bemAgricola) {
+	@PostMapping
+	public ResponseEntity<BemAgricola> cadastrarBemAgricola(@RequestBody BemAgricola bemAgricola) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(bemAgricolaService.cadastrarBemAgricola(bemAgricola));
 	}
 
 	@PostMapping("/garantia")
-	public ResponseEntity<Garantia> incluirGarantia(@RequestBody Garantia garantia) {
+	public ResponseEntity<Garantia> cadastrarGarantia(@RequestBody Garantia garantia) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(garantiaService.cadastrarGarantia(garantia));
 	}
 
@@ -60,6 +60,6 @@ public class BemAgricolaController {
 	
 	@GetMapping
 	public String teste() {
-		return "olaaa";
+		return "Mensagem para o papai do céu: por favor nos ajude";
 	}
 }

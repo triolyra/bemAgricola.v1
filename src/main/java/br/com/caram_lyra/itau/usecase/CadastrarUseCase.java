@@ -6,10 +6,12 @@ import org.springframework.stereotype.Component;
 import br.com.caram_lyra.itau.domain.BemAgricola;
 import br.com.caram_lyra.itau.domain.Garantia;
 import br.com.caram_lyra.itau.domain.Pessoa;
+import br.com.caram_lyra.itau.domain.Propriedade;
 import br.com.caram_lyra.itau.domain.Seguro;
 import br.com.caram_lyra.itau.repository.BemAgricolaRepository;
 import br.com.caram_lyra.itau.repository.GarantiaRepository;
 import br.com.caram_lyra.itau.repository.PessoaRepository;
+import br.com.caram_lyra.itau.repository.PropriedadeRepository;
 import br.com.caram_lyra.itau.repository.SeguroRepository;
 
 @Component
@@ -26,6 +28,9 @@ public class CadastrarUseCase {
 	
 	@Autowired
 	private PessoaRepository pessoaRepository;
+	
+	@Autowired
+	private PropriedadeRepository propriedadeRepository;
 
 		public boolean cadastrarBemAgricola(BemAgricola bemAgricola) {
 			if (bemAgricolaRepository.findByCodigoBem(bemAgricola.getCodigoBem()).isEmpty()) {
@@ -53,6 +58,14 @@ public class CadastrarUseCase {
 
 		public boolean cadastrarPessoa(Pessoa pessoa) {
 			if (pessoaRepository.findByCodigoPessoa(pessoa.getCodigoPessoa()).isEmpty()) {
+				return false;
+			} else {
+				return true;
+			}
+		}
+		
+		public boolean cadastrarPropriedade(Propriedade propriedade) {
+			if (propriedadeRepository.findByCodigoPropriedade(propriedade.getCodigoPropriedade()).isEmpty()) {
 				return false;
 			} else {
 				return true;

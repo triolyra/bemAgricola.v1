@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.caram_lyra.itau.domain.Pessoa;
 import br.com.caram_lyra.itau.repository.PessoaRepository;
-import br.com.caram_lyra.itau.usecase.CadastrarBemAgricolaUseCase;
+import br.com.caram_lyra.itau.usecase.CadastrarUseCase;
 
 @Service
 public class PessoaService {
@@ -13,10 +13,10 @@ public class PessoaService {
 	private PessoaRepository pessoaRepository;
 
 	@Autowired
-	private CadastrarBemAgricolaUseCase cadastrarBemAgricolaUseCase;
+	private CadastrarUseCase cadastrarUseCase;
 
 	public Pessoa cadastrarPessoa(Pessoa pessoa) {
-		if (cadastrarBemAgricolaUseCase.cadastrarPessoa(pessoa)) {
+		if (cadastrarUseCase.cadastrarPessoa(pessoa)) {
 			return null;
 		} else {
 			pessoaRepository.save(pessoa);
@@ -24,5 +24,4 @@ public class PessoaService {
 			return pessoa;
 		}
 	}
-
 }

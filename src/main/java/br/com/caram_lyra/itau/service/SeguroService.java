@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.caram_lyra.itau.domain.Seguro;
 import br.com.caram_lyra.itau.repository.SeguroRepository;
-import br.com.caram_lyra.itau.usecase.CadastrarBemAgricolaUseCase;
+import br.com.caram_lyra.itau.usecase.CadastrarUseCase;
 
 @Service
 public class SeguroService {
@@ -14,10 +14,10 @@ public class SeguroService {
 	private SeguroRepository seguroRepository;
 
 	@Autowired
-	private CadastrarBemAgricolaUseCase cadastrarBemAgricolaUseCase;
+	private CadastrarUseCase cadastrarUseCase;
 
 	public Seguro cadastrarSeguro(Seguro seguro) {
-		if (cadastrarBemAgricolaUseCase.cadastrarSeguro(seguro)) {
+		if (cadastrarUseCase.cadastrarSeguro(seguro)) {
 			return null;
 		} else {
 			seguroRepository.save(seguro);

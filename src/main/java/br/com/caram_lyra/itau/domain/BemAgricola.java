@@ -13,6 +13,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Data;
 
 @Entity
@@ -41,6 +43,7 @@ public class BemAgricola {
 	
 	@ManyToOne
 	@JoinColumn(name= "codigoPessoa")
+	@JsonIgnoreProperties("bemAgricola")
 	private Pessoa pessoa; //bem possui uma pessoa dona da propriedade
 	
 	@OneToMany (mappedBy= "bemAgricola")

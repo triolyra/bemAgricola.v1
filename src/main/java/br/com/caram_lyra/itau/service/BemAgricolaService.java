@@ -25,8 +25,8 @@ public class BemAgricolaService {
 			return bemAgricola;
 		}
 	}
-	
-	public BemAgricola consultarBemAgricola(BemAgricola bemAgricola) {
-		return bemAgricola;
-	}
 }
+	
+	//public BemAgricola consultarBemAgricola(BemAgricola bemAgricola) {
+		//return bemAgricola;
+	//}
