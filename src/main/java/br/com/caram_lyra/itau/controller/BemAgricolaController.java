@@ -11,12 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.caram_lyra.itau.domain.BemAgricola;
-import br.com.caram_lyra.itau.domain.Garantia;
-import br.com.caram_lyra.itau.domain.Pessoa;
+import br.com.caram_lyra.itau.domain.Propriedade;
 import br.com.caram_lyra.itau.domain.Seguro;
 import br.com.caram_lyra.itau.service.BemAgricolaService;
-import br.com.caram_lyra.itau.service.GarantiaService;
-import br.com.caram_lyra.itau.service.PessoaService;
+import br.com.caram_lyra.itau.service.PropriedadeService;
 import br.com.caram_lyra.itau.service.SeguroService;
 
 @RestController
@@ -29,20 +27,13 @@ public class BemAgricolaController {
 
 	@Autowired
 	private SeguroService seguroService;
-	
+
 	@Autowired
-	private PessoaService pessoaService;
-
-	private GarantiaService garantiaService;
-
+	private PropriedadeService propriedadeService;
+	
 	@PostMapping
 	public ResponseEntity<BemAgricola> cadastrarBemAgricola(@RequestBody BemAgricola bemAgricola) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(bemAgricolaService.cadastrarBemAgricola(bemAgricola));
-	}
-
-	@PostMapping("/garantia")
-	public ResponseEntity<Garantia> cadastrarGarantia(@RequestBody Garantia garantia) {
-		return ResponseEntity.status(HttpStatus.CREATED).body(garantiaService.cadastrarGarantia(garantia));
 	}
 
 	@PostMapping("/seguro")
@@ -50,13 +41,13 @@ public class BemAgricolaController {
 		return ResponseEntity.status(HttpStatus.CREATED).body(seguroService.cadastrarSeguro(seguro));
 	}
 	
+	@PostMapping ("/propriedade")
+	public ResponseEntity <Propriedade> IncluirPropriedade(@RequestBody Propriedade propriedade){
+		return ResponseEntity.status(HttpStatus.CREATED).body(propriedadeService.cadastrarPropriedade(propriedade));
+	}
+	
 	//@GetMapping("/")
 	//public ResponseEntity<List<BemAgricola>> findAllBemAgricola{
-	
-	@PostMapping("/pessoa")
-		 public ResponseEntity<Pessoa> cadastrarPessoa(@RequestBody Pessoa pessoa){
-		 return ResponseEntity.status(HttpStatus.CREATED).body(pessoaService.cadastrarPessoa(pessoa));
-		}
 	
 	@GetMapping
 	public String teste() {
