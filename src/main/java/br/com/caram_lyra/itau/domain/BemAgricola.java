@@ -1,15 +1,14 @@
 package br.com.caram_lyra.itau.domain;
 
 import java.util.Date;
-import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -37,18 +36,18 @@ public class BemAgricola {
 	private Date dataInclusao;
 	private Date dataAvaliacao;
 	
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.PERSIST)
 	@JoinColumn(name= "codigoGarantia")
 	private Garantia garantia; //bem possui uma garantia
 	
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.PERSIST)
 	@JoinColumn(name= "codigoPessoa")
 	@JsonIgnoreProperties("bemAgricola")
 	private Pessoa pessoa; //bem possui uma pessoa dona da propriedade
 	
-	@OneToMany (mappedBy= "bemAgricola")
-	private List <Propriedade> propriedade; //bem possui uma ou mais propriedades
+	@ManyToOne (cascade=CascadeType.PERSIST)
+	private Propriedade propriedade; //bem possui uma ou mais propriedades
 
-	@OneToOne (mappedBy= "bemAgricola")
+	@OneToOne (mappedBy= "bemAgricola", cascade=CascadeType.PERSIST) 
 	private Seguro seguro; //bem possui um seguro atrelado
 }

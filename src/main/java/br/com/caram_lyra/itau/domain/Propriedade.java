@@ -26,7 +26,7 @@ public class Propriedade {
 	private int numero;
 	private String complemento;
 	private String cidade;
-	private String UF;
+	private String uf;
 	
 	@ManyToOne
 	@JoinColumn(name= "codigoBem")
