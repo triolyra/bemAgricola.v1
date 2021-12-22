@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -34,8 +35,10 @@ public class BemAgricola {
 	private Date dataAvaliacao;
 	
 	@ManyToOne (cascade=CascadeType.PERSIST)
+	@JoinColumn(name= "codigoPropriedade")
 	private Propriedade propriedade; //bem possui uma ou mais propriedades
 
-	@OneToOne (mappedBy= "bemAgricola", cascade=CascadeType.PERSIST) 
+	@OneToOne (cascade=CascadeType.PERSIST)
+	@JoinColumn(name= "codigoSeguro")
 	private Seguro seguro; //bem possui um seguro atrelado
 }

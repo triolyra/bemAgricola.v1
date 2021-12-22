@@ -2,13 +2,15 @@ package br.com.caram_lyra.itau.domain;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Data;
 
@@ -25,10 +27,9 @@ public class Seguro {
 	private long cnpjSeguradora;
 	private Date dataInicio;
 	private Date dataFimAvaliacao;
-	
 
-	@OneToOne
-	@JoinColumn(name= "codigoBem")
+	@OneToOne (cascade=CascadeType.PERSIST)
+	@JsonIgnoreProperties("propriedade")
 	private BemAgricola bemAgricola; //o seguro é atrelado a um bem
 	
 }
