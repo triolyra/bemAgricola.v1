@@ -32,9 +32,5 @@ public class Propriedade {
 	@JoinColumn(name= "codigoBem")
 	private BemAgricola bemAgricola; //a propriedade é atrelada a um bem
 	
-	@ManyToOne
-	@JoinColumn(name= "codigoPessoa")
-	private Pessoa pessoa; //a propriedade é atrelada a uma pessoa
-	
 }
   
