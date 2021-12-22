@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.caram_lyra.itau.domain.Propriedade;
 import br.com.caram_lyra.itau.repository.PropriedadeRepository;
+import br.com.caram_lyra.itau.usecase.AtualizarUseCase;
 import br.com.caram_lyra.itau.usecase.CadastrarUseCase;
 
 @Service
@@ -16,6 +17,9 @@ public class PropriedadesService {
 
 	@Autowired
 	private CadastrarUseCase cadastrarUseCase;
+	
+	@Autowired
+	private AtualizarUseCase atualizarUseCase;
 
 	public Propriedade incluirPropriedade(Propriedade propriedade) {
 		if (cadastrarUseCase.incluirPropriedade(propriedade)) {
@@ -27,18 +31,10 @@ public class PropriedadesService {
 		}
 	}
 		
-		public Optional<Propriedade> atualizarUseCase(long idPropriedade, Propriedade propriedadeAtualizada){
-			Optional<Propriedade> propriedadeExistente = propriedadeRepository.findById(idPropriedade);
+		public Optional<Propriedade> atualizarUseCase(Propriedade propriedadeAtualizada){
 			
-			if(propriedadeExistente.isPresent()) {
-				propriedadeExistente.get().setEndereco(propriedadeAtualizada.getEndereco());
-				propriedadeExistente.get().setBairro(propriedadeAtualizada.getBairro());
-				propriedadeExistente.get().setCep(propriedadeAtualizada.getCep());
-				propriedadeExistente.get().setNumero(propriedadeAtualizada.getNumero());
-				propriedadeExistente.get().setComplemento(propriedadeAtualizada.getComplemento());
-				propriedadeExistente.get().setCidade(propriedadeAtualizada.getCidade());
-				propriedadeExistente.get().setUF(propriedadeAtualizada.getUF());
-				return Optional.ofNullable(propriedadeRepository.save(propriedadeExistente.get()));
+			if(atualizarUseCase.atualizarUseCase(propriedadeAtualizada.getCodigoPropriedade(),propriedadeAtualizada)!=null) {
+				return Optional.ofNullable(propriedadeRepository.save(atualizarUseCase.atualizarUseCase(propriedadeAtualizada.getCodigoPropriedade(),propriedadeAtualizada)));
 			}else {
 				return Optional.empty();
 	}

@@ -56,9 +56,8 @@ public class BemAgricolaController {
 	}
 	
 	@PutMapping ("/atualizar/{idPropriedade}")
-	public ResponseEntity<Propriedade> atualizarPropriedade (@PathVariable long idPropriedade, 
-			@Valid @RequestBody Propriedade atualizacaoPropriedade){
-		return propriedadeService.atualizarUseCase(idPropriedade, atualizacaoPropriedade)
+	public ResponseEntity <Propriedade> atualizarPropriedade (@RequestBody Propriedade atualizacaoPropriedade){
+		return propriedadeService.atualizarUseCase(atualizacaoPropriedade)
 				.map(propriedadeAtualizada -> ResponseEntity.status(201).body(propriedadeAtualizada))
 				.orElse(ResponseEntity.status(400).build());
 	}
