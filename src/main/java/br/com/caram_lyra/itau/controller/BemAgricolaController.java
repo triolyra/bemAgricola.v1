@@ -75,4 +75,4 @@ public class BemAgricolaController {
 				.map(seguroAtualizado -> ResponseEntity.status(201).body(seguroAtualizado))
 				.orElse(ResponseEntity.status(400).build());
     }
-}
+}	
