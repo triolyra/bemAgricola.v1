@@ -36,7 +36,7 @@ public class CadastrarUseCase {
 			}
 		}
 		
-		public boolean cadastrarSeguro(Seguro seguro) {
+		public boolean incluirSeguro(Seguro seguro) {
 			if (seguroRepository.findByCodigoSeguro(seguro.getCodigoSeguro()).isEmpty()) {
 				return false;
 			} else {

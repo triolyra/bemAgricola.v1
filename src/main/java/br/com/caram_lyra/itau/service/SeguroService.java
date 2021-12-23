@@ -20,8 +20,8 @@ public class SeguroService {
 	private AtualizarUseCase atualizarUseCase;
 	
 
-	public Seguro cadastrarSeguro(Seguro seguro) {
-		if (cadastrarUseCase.cadastrarSeguro(seguro)) {
+	public Seguro incluirSeguro(Seguro seguro) {
+		if (cadastrarUseCase.incluirSeguro(seguro)) {
 			return null;
 		} else {
 			seguroRepository.save(seguro);
