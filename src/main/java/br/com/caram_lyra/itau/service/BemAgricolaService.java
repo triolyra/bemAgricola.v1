@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.caram_lyra.itau.domain.BemAgricola;
 import br.com.caram_lyra.itau.repository.BemAgricolaRepository;
+import br.com.caram_lyra.itau.usecase.AtualizarUseCase;
 import br.com.caram_lyra.itau.usecase.CadastrarUseCase;
 import br.com.caram_lyra.itau.usecase.ConsultarUseCase;
 
@@ -22,6 +23,9 @@ public class BemAgricolaService {
 	
 	@Autowired
 	private ConsultarUseCase consultarUseCase;
+	
+	@Autowired
+	private AtualizarUseCase atualizarUseCase;
 	
 	public BemAgricola cadastrarBemAgricola(BemAgricola bemAgricola) {
 		if (cadastrarUseCase.cadastrarBemAgricola(bemAgricola)) {
@@ -38,5 +42,14 @@ public class BemAgricolaService {
 		} else {
 			return Optional.empty();
 		}
+	}
+		
+		public Optional<BemAgricola> atualizarUseCase(BemAgricola bemAgricolaAtualizado){
+			if(atualizarUseCase.atualizarUseCase(bemAgricolaAtualizado.getCodigoBem(),bemAgricolaAtualizado)!=null) {
+				return Optional.ofNullable(bemAgricolaRepository.save(atualizarUseCase.atualizarUseCase(bemAgricolaAtualizado.getCodigoBem(),bemAgricolaAtualizado)));
+			}else {
+				return Optional.empty();
+	        }
+
 	}
 }
