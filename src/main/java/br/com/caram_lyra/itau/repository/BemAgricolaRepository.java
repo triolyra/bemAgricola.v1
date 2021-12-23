@@ -10,5 +10,5 @@ import br.com.caram_lyra.itau.domain.BemAgricola;
 @Repository
 public interface BemAgricolaRepository extends JpaRepository<BemAgricola, Long>{
 	
-	public Optional<BemAgricola> findByCodigoBem(Long codigoBem);
+	public Optional<BemAgricola> findByCodigoBem(long codigoBem);
 }
