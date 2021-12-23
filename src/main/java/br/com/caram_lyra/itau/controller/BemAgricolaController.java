@@ -40,12 +40,12 @@ public class BemAgricolaController {
 		return ResponseEntity.status(HttpStatus.CREATED).body(bemAgricolaService.cadastrarBemAgricola(bemAgricola));
 	}
 
-	@PostMapping("/seguro")
+	@PostMapping("/cadastrar-seguro")
 	public ResponseEntity<Seguro> cadastrarSeguro(@RequestBody Seguro seguro) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(seguroService.cadastrarSeguro(seguro));
 	}
 	
-	@PostMapping ("/propriedade")
+	@PostMapping ("/cadastrar-propriedade")
 	public ResponseEntity <Propriedade> cadastrarPropriedade(@RequestBody Propriedade propriedade){
 		return ResponseEntity.status(HttpStatus.CREATED).body(propriedadeService.cadastrarPropriedade(propriedade));
 	}
@@ -55,21 +55,21 @@ public class BemAgricolaController {
 		return ResponseEntity.ok(bemAgricolaService.consultarBemAgricola(codigoBem));
 	}
 	
-	@PutMapping ("/atualizarPropriedade/{codigoPropriedade}")
+	@PutMapping ("/atualizar-propriedade/{codigoPropriedade}")
 	public ResponseEntity <Propriedade> atualizarPropriedade (@RequestBody Propriedade atualizacaoPropriedade){
 		return propriedadeService.atualizarUseCase(atualizacaoPropriedade)
 				.map(propriedadeAtualizada -> ResponseEntity.status(201).body(propriedadeAtualizada))
 				.orElse(ResponseEntity.status(400).build());
 	}
 	
-	@PutMapping ("/atualizarBemAgricola/{codigoBem}")
+	@PutMapping ("/atualizar-bem-agricola/{codigoBem}")
 	public ResponseEntity <BemAgricola> atualizarBemAgricola (@RequestBody BemAgricola atualizacaoBemAgricola){
 		return bemAgricolaService.atualizarUseCase(atualizacaoBemAgricola)
 				.map(bemAgricolaAtualizado -> ResponseEntity.status(201).body(bemAgricolaAtualizado))
 				.orElse(ResponseEntity.status(400).build());
 	}
 	
-	@PutMapping ("/atualizarSeguro/{codigoSeguro}")
+	@PutMapping ("/atualizar-seguro/{codigoSeguro}")
 	public ResponseEntity <Seguro> atualizarSeguro (@RequestBody Seguro atualizacaoSeguro){
 		return seguroService.atualizarUseCase(atualizacaoSeguro)
 				.map(seguroAtualizado -> ResponseEntity.status(201).body(seguroAtualizado))
